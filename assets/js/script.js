@@ -55,7 +55,7 @@ var auditTask = function (taskEl) {
   console.log(time);
   // remove any old classes from element
   $(taskEl).removeClass("list-group-item-warning list-group-item-danger");
-
+  console.log(taskEl);
   // apply new class if task is near/over due date
   if (moment().isAfter(time)) {
     $(taskEl).addClass("list-group-item-danger");
@@ -256,8 +256,8 @@ $("#modalDueDate").datepicker({
   minDate: 1,
 });
 
-setInterval(function() {
-    $(".card .list-group-item").each(function(index, el) {
-        auditTask(el);
-    });
+setInterval(function () {
+  $(".card .list-group-item").each(function (index, el) {
+    auditTask(el);
+  });
 }, 5000);
